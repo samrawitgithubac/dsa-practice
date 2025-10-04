@@ -1,17 +1,20 @@
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        x=0
-        b=[0 for i in range(len(nums))]
-        for  x in range(len(nums)):
-            for i in range(len(nums)):
-                b[i]=nums[(i+x)%(len(nums))]
-          
-            if sorted(nums)==b:
-                return True
-           
-        return False
+        count=0
+        for i in range(1,len(nums)):
+            if nums[i]<nums[i-1]:
+                count+=1
+        if count==0:
+            return True
+        if count==1 and nums[0]>=nums[-1]:
+            return True
+        else:
+            return False
 
 
+            
+       
+       
             
             
         
