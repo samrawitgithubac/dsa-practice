@@ -5,9 +5,7 @@ class Solution:
             nums.pop()
             k-=1
         return nums
-    
-
-        
+       
 
 
         
