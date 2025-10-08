@@ -4,24 +4,16 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        hashmap1={'1':0,'0':0}
-        ans=[]
-        numss=set(nums)
-        if len(numss)==1 and numss==0:
-            return 0
-        
-        for num in nums:
-            if  num==1:
-                hashmap1['1']+=1
+        maxss=0
+        count=0
+        for i in range(len(nums)):
+            if nums[i]==1:
+                count+=1
+                maxss=max(maxss,count)
             else:
-                hashmap1['0']+=1
-                ans.append(hashmap1['1'])
-                hashmap1['1']=0
-        ans.append(hashmap1['1'])
-        return max(ans)
-
-                
-               
+                count=0
+        return maxss
+       
 
 
             
