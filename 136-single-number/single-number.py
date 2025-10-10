@@ -4,9 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        xor=nums[0]
-        for i in range(1,len(nums)):
-            xor^=nums[i]
+        xor=0
+        for num in nums:
+            xor^=num
         return xor
         
 
