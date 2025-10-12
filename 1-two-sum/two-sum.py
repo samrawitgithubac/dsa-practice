@@ -5,16 +5,16 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        for  i in range(len(nums)):
+            s=target-nums[i]
+            if  s in nums and nums.index(s)!=i:
+                return [i, nums.index(s)]
+
+
+
       
-        for i in range(len(nums)):
-            sums=nums[i]
-            for j in range(i+1,len(nums)):
-                sums+=nums[j]
-                if sums==target:
-                    return [i,j]
-                else:
-                    sums-=nums[j]
-        
+       
+
 
 
 
