@@ -5,10 +5,14 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        for  i in range(len(nums)):
-            s=target-nums[i]
-            if  s in nums and nums.index(s)!=i:
-                return [i, nums.index(s)]
+        hashmap1={}
+        for i,num  in enumerate(nums):
+            s=target-num
+            if s in hashmap1:
+                return [i,hashmap1[s]]
+            else:
+                hashmap1[num]=i
+        
 
 
 
