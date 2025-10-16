@@ -4,26 +4,24 @@ class Solution(object):
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        countzero=0
-        countone=0
-        counttwo=0
-        for i in range(len(nums)):
-            if nums[i]==0:
-                countzero+=1
-            elif nums[i]==1:
-                countone+=1
+        low=0
+        high=len(nums)-1
+        mid=0
+        while low<=high and mid<=high:
+            if nums[mid]==0:
+                nums[mid],nums[low]=nums[low],nums[mid]
+                mid+=1
+                low+=1
+            #print(nums)
+            elif  nums[mid]==1:
+                mid+=1  
+            #print(nums)
+            
             else:
-                counttwo+=1
-        for i in range(countzero):
-            nums[i]=0
-        s=countone+countzero
-        h=s+counttwo
-        for  i in range(countzero,s):
-            nums[i]=1
-        for i in range(s,h):
-            nums[i]=2
+                nums[mid],nums[high]=nums[high],nums[mid]
+                high-=1
         return nums
-       
+
        
 
            
