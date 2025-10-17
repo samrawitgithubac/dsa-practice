@@ -4,19 +4,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        maxss=float('-inf')
-        count=0
-        c=0
-        for  num in nums:
-            if num<0:
-                c+=1
-        if c==len(nums):
-            return max(nums)
-        if len(nums)==1:
-            return  nums[0]
-        for num in nums:
-            count+=num
-            if count<0:
-                count=0
-            maxss=max(maxss,count)
-        return maxss
+        # Initialize both current and global maximum to the first element
+        current_sum = max_sum = nums[0]
+        
+        # Iterate from the second element
+        for num in nums[1:]:
+            # Either extend the current subarray or start a new one
+            current_sum = max(num, current_sum + num)
+            max_sum = max(max_sum, current_sum)
+        
+        return max_sum
