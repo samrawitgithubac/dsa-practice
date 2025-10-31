@@ -4,7 +4,7 @@ class Solution(object):
         :type matrix: List[List[int]]
         :rtype: None Do not return anything, modify matrix in-place instead.
         """
-        ans=[]
+       
         col0=1
        
         for  i in range(len(matrix)):
