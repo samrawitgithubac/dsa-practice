@@ -5,17 +5,25 @@ class Solution(object):
         :rtype: None Do not return anything, modify matrix in-place instead.
         """
         ans=[]
+        col=[0]*len(matrix[0])
+        row=[0]*len(matrix)
         for  i in range(len(matrix)):
             for j in range(len(matrix[0])):
                 if matrix[i][j]==0:
-                    ans.append((i,j))
-        
-        for i,j  in ans:
-            for col in range(len(matrix[0])):
-                matrix[i][col]=0
-            for  row in range(len(matrix)):
-                matrix[row][j]=0
+                    col[j]=1
+                    row[i]=1
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if (row[i])or(col[j])==1:
+                    matrix[i][j]=0
         return matrix
+                
+
+
+
+               
+        
+        
         
 
 
