@@ -5,16 +5,15 @@ class Solution:
         l=0
         r=len(nums)-1
         while  l<=r:
-            if nums[l]==target:
-                return l
+            mid=(l+r)//2
             
-            elif nums[r]==target:
-                return  r
-            
-            l+=1
-            r-=1
-        
-        return  -1
-
+            if nums[mid]==target:
+               return mid
+            elif nums[mid]>target:
+                r=mid-1
+            else:
+                l=mid+1
+        return -1
+       
        
        
