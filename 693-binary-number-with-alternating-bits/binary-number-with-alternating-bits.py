@@ -1,16 +1,14 @@
 class Solution:
     def hasAlternatingBits(self, n: int) -> bool:
-        s=""
-        if n==0 or n==1:
-            return True
+        lastbit=n&1
+        n>>=1
         while n>0:
-            a=n%2
-            s+=str(a)
-            n=n//2
-        print(s)
-        for i in range(1,len(s)):
-            if s[i-1]==s[i]:
+            currentbit=n&1
+            if currentbit==lastbit:
                 return False
-        else:
-            return True
+            lastbit=currentbit
+            n>>=1
+        return True
+       
+        
         
